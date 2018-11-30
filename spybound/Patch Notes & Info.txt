@@ -1,0 +1,20 @@
+-------------------------------
+Changes in Version 1.5.1
+-------------------------------
+-3 new levels (World 4 finished and first World 5 level completed)
+-New aesthetic for World 4 (and possibly the rest of the game)
+-Fixed an aesthetic bug where the Spies would only come out of Debug mode in red instead of blue
+-Spies in debug mode now flash both red and blue
+-New object: obj_bounce (its basically a trampoline!)
+-Clouds in all levels with blue sky
+-Darker textures in some of the levels where the top of the level is completely covered
+-Minor bug fixes
+-Removed some unused resources from the game's code (but can still be found in game files)
+--------------------
+Additional Notes
+--------------------
+-I'm currently working on a potential enemy, the Coyote Shark (you can find them in the after-game testing levels)
+-Mousey Mick and Spybound are worked on in conjunction, they are the exact same game
+-Feel free to add me on Steam, http://steamcommunity.com/id/jackrifleman
+-Special thanks to my lovely Game Testers, "Wuzzterfuzz"' and "Pancake Man <3". You guys rock!
+-Currently working on an online version of the game so that you don't need to download it anymore
