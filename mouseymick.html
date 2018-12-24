@@ -10,12 +10,12 @@
         <meta charset="utf-8"/>
 
         <!-- Set the title bar of the page -->
-        <title>Mousey Mick (v0.8.0.3 BROWSER FINAL)</title>
+        <title>Mousey Mick v0.8.3.0</title>
 
         <!-- Set the background colour of the document -->
         <style>
             body {
-              background: #222;
+              background: ${BACKGROUND_COLOUR};
               color:#cccccc;
               margin: 0px;
               padding: 0px;
@@ -24,6 +24,7 @@
             canvas {
                       image-rendering: optimizeSpeed;
                       -webkit-interpolation-mode: nearest-neighbor;
+                      -ms-touch-action: none;
                       margin: 0px;
                       padding: 0px;
                       border: 0px;
@@ -37,7 +38,7 @@
               position: fixed;
               top: 50%;
               left: 50%;
-              margin-left: -320px;
+              margin-left: -416px;
               margin-top: -240px;
               padding: 0px;
               border: 0px;
@@ -76,12 +77,13 @@
     <body>
         <div class="gm4html5_div_class" id="gm4html5_div_id">
             <!-- Create the canvas element the game draws to -->
-            <canvas id="canvas" width="640" height="480">
+            <canvas id="canvas" width="832" height="480">
                <p>Your browser doesn't support HTML5 canvas.</p>
             </canvas>
         </div>
 
         <!-- Run the game code -->
-        <script type="text/javascript" src="mouseymick/Mousey Mick.js?FXWZB=1764417102"></script>
+        <script type="text/javascript" src="mouseymick/Mousey Mick gms2.js?GNAAC=1264653514"></script>
+        <script>window.onload = GameMaker_Init;</script>
     </body>
 </html>
