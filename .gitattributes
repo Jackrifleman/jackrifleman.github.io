@@ -1,0 +1,3 @@
+# Forgo source compiling
+* export-ignore
+*.* export-ignore
