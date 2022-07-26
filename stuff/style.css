@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'tf2_build';
+    src: url(fonts/tf2_build.ttf);
+}
+
+@font-face {
+    font-family: 'tf2_secondary';
+    src: url(fonts/tf2_secondary.ttf);
+}
+
+body {
+    color: rgb(255, 255, 255);
+    background-color: rgb(72, 68, 80);
+    font-family: Roboto;
+    display: block;
+}
+
+div {
+	margin: 0 auto;
+	width: 800px;
+	background-color: rgb(49, 46, 54);
+	border: 2px solid rgb(49, 46, 54);
+	border-radius: 8px;
+	min-height: 50px;
+	height: auto;
+	margin-top: 0.5cm;
+	margin-bottom: 0.5cm;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+a {
+    color: white;
+}
+
+a:visited {
+    color: white;
+}
+
+button {
+    font-weight: thick;
+    font-size: larger;
+    font-family: Roboto;
+    color: white;
+    height: 1cm;
+    width: 3cm;
+    border-radius: 2px;
+    border: 2px solid rgb(79, 141, 255);
+    background-color: rgb(72, 72, 255);
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(81, 81, 255);
+}
+
+button:active {
+    background-color: rgb(98, 98, 255);
+}
+
+input {
+    border: 1px solid white;
+    border-radius: 2px;
+    font-family: Roboto;
+    color: white;
+    background-color: rgb(49, 46, 54);
+}
+
+.wep_container {
+    background-color: #24201b;
+    border: none;
+    text-align: center;
+    width: 300px;
+    border-radius: 10px;
+    padding: 7px 0px;
+}
+
+.att {
+    font-family: 'tf2_secondary';
+    font-size: 15px;
+}
+
+.wep_name {
+    color: rgb(255,215,0);
+    font-family: 'tf2_build';
+    font-size: 18px;
+}
+
+.wep_level {
+    color: #756B5E;
+}
+
+.att_pos {
+    color: #99CCFF;
+}
+
+.att_neg {
+    color: #FF4040;
+}
+
+.textbox {
+    resize: none;
+    border: 1px solid white;
+    border-radius: 2px;
+    color: white;
+    background-color: rgb(49, 46, 54);
+    font-family: Roboto;
+    width: 600px;
+    height: 200px;
+}
+
+#html-box {
+    border: 1px solid white;
+    border-radius: 2px;
+    color: white;
+    background-color: rgb(49, 46, 54);
+    font-family: Roboto;
+    width: 604px;
+	height: auto;
+    min-height: 200px;
+    padding-left: 8px;
+    padding-right: 8px;
+}

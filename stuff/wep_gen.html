@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>TF2 Weapon Generator by Jackrifleman</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+		<link rel="stylesheet" href="style.css">
+        <script src="engine.js"></script>
+    </head>
+    <body>
+		<!--Header-->
+		<div>
+        <h1>TF2 Weapon Generator by Jackrifleman</h1>
+		</div>
+		
+        <button style="margin: auto; width: auto; height: auto; display: block" onclick="generateWeapon()">Generate New Weapon</button>
+
+		<div class="wep_container">
+            <span id="weapon-name" class="wep_name">The Royal Red</span>
+            <br>
+            <span class="att">
+                <span id="weapon-level" class="wep_level">Level 10 Burger</span>
+                <br>
+                <span id="attributes-pos" class="att_pos"></span>
+                    <script>
+                        document.getElementById("attributes-pos").innerHTML = "+1 Egg<br>+2 Bacon Strips";
+                    </script>
+                <br>
+                <span id="attributes-neg" class="att_neg">No random crits</span>
+            </span>
+
+		</div>
+    </body>
+</html>
