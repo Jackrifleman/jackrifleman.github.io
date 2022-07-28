@@ -1,14 +1,14 @@
 classes = ["Scout", "Soldier", "Pyro", "Demoman", "Heavy", "Engineer", "Medic", "Sniper", "Spy"];
 weapons = [
-            ["Scattergun", "Peppergun", "Lunch Box", "Cleaver", "Bat"],
-            ["Rocket Launcher", "Shotgun", "Battle Banner", "Shovel", "Pickaxe", "Sword"],
-            ["Flame Thrower", "Shotgun", "Flaregun", "Fireaxe", "Rake"],
+            ["Scattergun", "Peppergun", "Pistol", "Bat"],
+            ["Rocket Launcher", "Shotgun", "Shovel", "Pickaxe", "Sword"],
+            ["Flame Thrower", "Shotgun", "Flaregun", "Fireaxe"],
             ["Grenade Launcher", "Stickybomb Launcher", "Bottle", "Stick Bomb", "Sword"],
-            ["Minigun", "Shotgun", "Lunch Box", "Fists", "Boxing Gloves"],
-            ["Shotgun", "Pistol", "Wrench", "Robot Arm", "PDA"],
-            ["Syringe Gun", "Crossbow", "Medigun", "Bonesaw"],
+            ["Minigun", "Shotgun", "Fists", "Boxing Gloves"],
+            ["Shotgun", "Pistol", "Wrench", "Robot Arm"],
+            ["Syringe Gun", "Crossbow", "Bonesaw"],
             ["Sniper Rifle", "SMG", "Kukri"],
-            ["Revolver", "Sapper", "Knife"]
+            ["Revolver", "Knife"]
         ];
 
 prefixes = [ 
@@ -48,11 +48,20 @@ attributes = [
         [
             "+$PER% damage bonus", "+$PER% clip size", "+$PER% faster firing speed", "On Hit: Gain $STATUS for $INT seconds",
             "On Hit: Gain up to +$PER health", "+$PER max health on wearer", "On Kill: Gain $STATUS for $INT seconds",
-            "On Hit: Ignites target for $INT seconds", "On Hit: Bleeds target for $INT seconds"
+            "On Hit: Ignites target for $INT seconds", "On Hit: Bleeds target for $INT seconds", "$PER% faster move speed on wearer",
+            "On Kill: +$PER% damage bonus for $INT seconds", "+$PER% more accurate", "Mini-crits airborne targets",
+            "Damage increases as the user becomes injured", "Damage removes Sappers", "Imbued with an ancient power",
+            "The wearer cannot be killed by headshots", "Crits whenever it would normally mini-crit", "$PER% faster weapon switch speed",
+            "100% mini-crits vs burning players", "Wearer never takes falling damage", "Does not require ammo", "Projectile penetrates enemy targets",
+            "+$PER health gained per second on wearer", "On Hit: damage dealt is returned as ammo", "+$PER% max ammo on wearer",
+            "+$PER% greater jump height on wearer"
         ],
         [
             "-$PER% damage penalty", "-$PER% clip size", "-$PER max health on wearer", "On Damage: Become $STATUS for $INT seconds",
-            "On Damage: Instantly die", "On Miss: Hit yourself. Idiot."
+            "On Damage: Instantly die", "On Miss: Hit yourself. Idiot.", "No random critical hits", "On Miss: Lose -$PER health",
+            "On Miss: Instantly die", "$PER% slower move speed on wearer", "-$PER% less accurate", "Damage decreases as the user becomes injured",
+            "-$PER health drained per second on wearer", "$PER% slower weapon switch speed", "Fires tracer rounds", "-$PER% max ammo on wearer",
+            "On Miss: Become $STATUS for $INT seconds"
         ]
 
 ]
@@ -74,11 +83,12 @@ function irandom_range(x, y) {
     return Math.floor(Math.random() * y + x, + 1);
 };
 
-function modifyDOM(name, lvl, pos, neg) {
+function modifyDOM(name, lvl, pos, neg, cls) {
     document.getElementById("weapon-name").innerHTML = name;
     document.getElementById("weapon-level").innerHTML = lvl;
     document.getElementById("attributes-pos").innerHTML = pos;
     document.getElementById("attributes-neg").innerHTML = neg;
+    document.getElementById("class-icon").src = "images/icon_" + cls.toLowerCase() + ".jpg";
 }
 
 function generateWeapon() 
@@ -94,7 +104,7 @@ function generateWeapon()
     _pos = attributeAddPos();
     _neg = attributeAddNeg();
 
-    modifyDOM(_fname,_lvl,_pos,_neg);
+    modifyDOM(_fname,_lvl,_pos,_neg,_class_name);
     
 };
 
@@ -123,7 +133,7 @@ function attributeAddPos() {
 }
 
 function attributeAddNeg() {
-    _cnt = irandom(2);
+    _cnt = irandom(2)+1;
     _att = "";
     for (i = 0; i < _cnt; i++) {
         _att += getAttribute(1);
