@@ -70,9 +70,9 @@ input {
     background-color: #24201b;
     border: none;
     text-align: center;
-    width: 300px;
+    width: 293px;
     border-radius: 10px;
-    padding: 7px 0px;
+    padding: 7px 7px;
 }
 
 .att {
