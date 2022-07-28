@@ -1,4 +1,11 @@
 classes = ["Scout", "Soldier", "Pyro", "Demoman", "Heavy", "Engineer", "Medic", "Sniper", "Spy"];
+
+images = [
+            "images/icon_scout.jpg","images/icon_soldier.jpg","images/icon_pyro.jpg",
+            "images/icon_demoman.jpg","images/icon_heavy.jpg","images/icon_engineer.jpg",
+            "images/icon_medic.jpg","images/icon_sniper.jpg","images/icon_spy.jpg"
+        ]
+
 weapons = [
             ["Scattergun", "Peppergun", "Pistol", "Bat"],
             ["Rocket Launcher", "Shotgun", "Shovel", "Pickaxe", "Sword"],
@@ -44,6 +51,8 @@ names = [
             "Boy", "Chad", "Bender", "Player", "Bomb", "Special", "Christmas"
 ];
 
+
+
 attributes = [
         [
             "+$PER% damage bonus", "+$PER% clip size", "+$PER% faster firing speed", "On Hit: Gain $STATUS for $INT seconds",
@@ -74,6 +83,13 @@ statuses = [
             "slowed", "marked for death", "ignited", "doused in Mad Milk", "doused in Jarate"
         ]
 ]
+
+function preloadImages(imgArr) {
+    _img = [];
+    for (i = 0; i < imgArr.length; i++) {
+        _img[i] = (new Image).src = images[i];
+    }
+}
 
 function irandom(x) {
     return Math.floor(Math.random() * x);
