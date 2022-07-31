@@ -7,7 +7,7 @@ images = [
         ]
 
 weapons = [
-            ["Scattergun", "Peppergun", "Pistol", "Bat"],
+            ["Scattergun", "Peppergun", "Pistol", "Bat", "Fish"],
             ["Rocket Launcher", "Shotgun", "Shovel", "Pickaxe", "Sword"],
             ["Flame Thrower", "Shotgun", "Flaregun", "Fireaxe"],
             ["Grenade Launcher", "Stickybomb Launcher", "Bottle", "Stick Bomb", "Sword"],
@@ -33,7 +33,8 @@ prefixes = [
             "Gromky", "Razrez", "Toe", "Wife", "Spouse", "Husband", "Tempered", "Experimental",
             "Mental", "Kid", "Boy", "Salty", "Gregorian", "Hindenburg", "Prime", "Glizzy", "Eidolon",
             "Mississippi", "Fort", "Night", "Battle", "Raw", "Milk", "Giga", "Explosive", "Boom", "Midnight",
-            ""
+            "Bread", "Tooth", "Paper", "Fancy", "Dapper", "Rambunctious", "Spooky", "Mad", "Thick",
+            "Magic", "Friendship", ""
         ];
 
 names = [
@@ -48,7 +49,8 @@ names = [
             "Sucker", "Catastrophe", "Shaft", "Disaster", "Rod", "Jimmy", "Lyuda", "Goofball", "Stabber",
             "Shank", "Jabber", "Shot", "Cleaver", "Splitter", "Mangler", "Massacre", "Incident", "Prime", "Crime",
             "Master", "Gobbler", "Disciple", "Mile", "Ally", "King", "Queen", "Night", "Pass", "Barnacle", "Maid",
-            "Boy", "Chad", "Bender", "Player", "Bomb", "Special", "Christmas"
+            "Boy", "Chad", "Bender", "Player", "Bomb", "Special", "Christmas", "Bread", "Tooth", "Straw", "House",
+            "Magic", "Friendship"
 ];
 
 
@@ -56,33 +58,45 @@ names = [
 attributes = [
         [
             "+$PER% damage bonus", "+$PER% clip size", "+$PER% faster firing speed", "On Hit: Gain $STATUS for $INT seconds",
-            "On Hit: Gain up to +$PER health", "+$PER max health on wearer", "On Kill: Gain $STATUS for $INT seconds",
-            "On Hit: Ignites target for $INT seconds", "On Hit: Bleeds target for $INT seconds", "$PER% faster move speed on wearer",
+            "On Hit: Gain up to +$PER health", "+$PER max health $ATYPE", "On Kill: Gain $STATUS for $INT seconds",
+            "On Hit: Ignites target for $INT seconds", "On Hit: Bleeds target for $INT seconds", "$PER% faster move speed $ATYPE",
             "On Kill: +$PER% damage bonus for $INT seconds", "+$PER% more accurate", "Mini-crits airborne targets",
             "Damage increases as the user becomes injured", "Damage removes Sappers", "Imbued with an ancient power",
-            "The wearer cannot be killed by headshots", "Crits whenever it would normally mini-crit", "$PER% faster weapon switch speed",
-            "100% mini-crits vs burning players", "Wearer never takes falling damage", "Does not require ammo", "Projectile penetrates enemy targets",
-            "+$PER health gained per second on wearer", "On Hit: damage dealt is returned as ammo", "+$PER% max ammo on wearer",
-            "+$PER% greater jump height on wearer"
+            "Crits whenever it would normally mini-crit", "$PER% faster weapon switch speed $ATYPE",
+            "100% mini-crits vs burning players", "Does not require ammo", "Projectiles penetrate players",
+            "+$PER health gained per second $ATYPE", "On Hit: Damage dealt is returned as ammo", "+$PER% max ammo $ATYPE",
+            "+$PER% greater jump height $ATYPE", "+$PER% $DMG damage resistance $ATYPE", "On Kill: Gain $PER% of base health on kill",
+            "On Kill: Weapon is reloaded from reserves", "Immunity to headshots $ATYPE", "Immunity to backstabs $ATYPE", "Immunity to fall damage $ATYPE",
+            "On Hit Teammate: They gain $STATUS for $INT seconds", "On Hit: Target is $STSNEG for $INT seconds", "On Hit Teammate: Extinguishes teammates",
+            "On Miss: Gain $STATUS for $INT seconds", "100% critical chance vs wet players", "Mini-crits vs wet players",
+            "On Hit Teammate: Gain $STATUS for $INT seconds", "On Hit Teammate: You both gain $STATUS for $INT seconds", "Leave a calling card on your victims"
         ],
         [
-            "-$PER% damage penalty", "-$PER% clip size", "-$PER max health on wearer", "On Damage: Become $STATUS for $INT seconds",
+            "-$PER% damage penalty", "-$PER% clip size", "-$PER max health $ATYPE", "On Damage: Become $STATUS for $INT seconds",
             "On Damage: Instantly die", "On Miss: Hit yourself. Idiot.", "No random critical hits", "On Miss: Lose -$PER health",
-            "On Miss: Instantly die", "$PER% slower move speed on wearer", "-$PER% less accurate", "Damage decreases as the user becomes injured",
-            "-$PER health drained per second on wearer", "$PER% slower weapon switch speed", "Fires tracer rounds", "-$PER% max ammo on wearer",
-            "On Miss: Become $STATUS for $INT seconds"
+            "On Miss: Instantly die", "$PER% slower move speed $ATYPE", "-$PER% less accurate", "Damage decreases as the user becomes injured",
+            "-$PER health drained per second $ATYPE", "$PER% slower weapon switch speed $ATYPE", "Fires tracer rounds", "-$PER% max ammo $ATYPE",
+            "On Miss: Become $STATUS for $INT seconds", "$PER% $DMG damage vulnerability $ATYPE", "On Hit: Target gains $STSPOS for $INT seconds",
+            "On Hit Teammate: They become $STATUS for $INT seconds", "On Hit: Extinguishes target", "On Hit Teammate: You both become $STATUS for $INT seconds"
         ]
 
 ]
 
 statuses = [
         [
-            "100% critical chance", "speed bonus", "mini-crits", "invulnerability"
+            "100% critical chance", "a speed bonus", "mini-crits", "invulnerability"
         ],
         [
-            "slowed", "marked for death", "ignited", "doused in Mad Milk", "doused in Jarate"
+            "slowed", "marked for death", "ignited", "doused in Mad Milk", "doused in Jarate",
+            "feared"
         ]
 ]
+
+damage = [
+    "explosive", "bullet", "fire", "melee", "critical"
+]
+
+activeType = ["on wearer", "while deployed"];
 
 function preloadImages(imgArr) {
     _img = [];
@@ -127,21 +141,30 @@ function generateWeapon()
 function getAttribute(neg) {
     _att = attributes[neg][irandom(attributes[neg].length)];
     _percent = Math.floor((((irandom(99)))+5)/5) * 5;
-    //console.log(_percent.toString());
-    _att = _att.replace("$PER", _percent.toString());
+
     _att = _att.replace("$STATUS", statuses[neg][irandom(statuses[neg].length)]);
+    _att = _att.replace("$STSPOS", statuses[0][irandom(statuses[0].length)]);
+    _att = _att.replace("$STSNEG", statuses[1][irandom(statuses[1].length)]);
+
     _int = Math.floor((((irandom(29)))+5)/5) * 5;
+    _att = _att.replace("$DMG", damage[irandom(damage.length)]);
+    _att = _att.replace("$ATYPE", activeType[irandom(2)]);
+
     _att = _att.replace("$INT", _int.toString());
+    _att = _att.replace("$PER", _percent.toString());
 
     return _att;
 }
 
 function attributeAddPos() {
-    _cnt = irandom(2)+1;
+    _cnt = 1;
     _att = "";
-    for (i = 0; i < _cnt; i++) {
+    i = irandom(_cnt);
+    while (i == 0) {
         _att += getAttribute(0);
-        if (i < _cnt-1) {
+        _cnt *= 2;
+        i = irandom(_cnt);
+        if (i == 0) {
             _att += "<br>";
         }
     }
@@ -149,11 +172,14 @@ function attributeAddPos() {
 }
 
 function attributeAddNeg() {
-    _cnt = irandom(2)+1;
+    _cnt = 1;
     _att = "";
-    for (i = 0; i < _cnt; i++) {
+    i = irandom(_cnt);
+    while (i == 0) {
         _att += getAttribute(1);
-        if (i < _cnt-1) {
+        _cnt *= 2;
+        i = irandom(_cnt);
+        if (i == 0) {
             _att += "<br>";
         }
     }
