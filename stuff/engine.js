@@ -34,7 +34,7 @@ prefixes = [
             "Mental", "Kid", "Boy", "Salty", "Gregorian", "Hindenburg", "Prime", "Glizzy", "Eidolon",
             "Mississippi", "Fort", "Night", "Battle", "Raw", "Milk", "Giga", "Explosive", "Boom", "Midnight",
             "Bread", "Tooth", "Paper", "Fancy", "Dapper", "Rambunctious", "Spooky", "Mad", "Thick",
-            "Magic", "Friendship", ""
+            "Magic", "Friendship", "Tsar", "Widow", ""
         ];
 
 names = [
@@ -50,7 +50,7 @@ names = [
             "Shank", "Jabber", "Shot", "Cleaver", "Splitter", "Mangler", "Massacre", "Incident", "Prime", "Crime",
             "Master", "Gobbler", "Disciple", "Mile", "Ally", "King", "Queen", "Night", "Pass", "Barnacle", "Maid",
             "Boy", "Chad", "Bender", "Player", "Bomb", "Special", "Christmas", "Bread", "Tooth", "Straw", "House",
-            "Magic", "Friendship"
+            "Magic", "Friendship", "Tsar", "Widow"
 ];
 
 
@@ -86,7 +86,11 @@ attributes = [
 
 ]
 
-meters = ["CRIKEY", "RAGE", "GRRR", "MAYO", "HYPE"]
+meters = [
+            "CRIKEY", "RAGE", "GRRR", "MAYO", "HYPE", "TEXAS",
+            "YUMMY", "BOSTON", "AMERICA", "BANG", "BOOM", "SILLY",
+            "AUSTRALIA", "MONKEY"
+        ]
 
 statuses = [
         [
