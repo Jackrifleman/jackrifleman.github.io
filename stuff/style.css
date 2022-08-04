@@ -31,6 +31,7 @@ div {
 
 a {
     color: white;
+    text-decoration: none;
 }
 
 a:visited {
@@ -107,6 +108,23 @@ input {
     font-family: Roboto;
     width: 600px;
     height: 200px;
+}
+
+.footer 
+{
+    position: absolute;
+    top: 90%;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    font-weight: thick;
+    font-size: larger;
+    font-family: Roboto;
+    margin: auto;
+    text-align: center;
+    width: 400px;
+    min-height: 50px;
 }
 
 #html-box {
