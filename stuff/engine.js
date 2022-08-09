@@ -3,7 +3,8 @@ classes = ["Scout", "Soldier", "Pyro", "Demoman", "Heavy", "Engineer", "Medic", 
 images = [
             "images/icon_scout.jpg","images/icon_soldier.jpg","images/icon_pyro.jpg",
             "images/icon_demoman.jpg","images/icon_heavy.jpg","images/icon_engineer.jpg",
-            "images/icon_medic.jpg","images/icon_sniper.jpg","images/icon_spy.jpg"
+            "images/icon_medic.jpg","images/icon_sniper.jpg","images/icon_spy.jpg",
+            "images/me.jpg"
         ]
 
 weapons = [
@@ -133,6 +134,10 @@ function modifyDOM(name, lvl, pos, neg, cls) {
     document.getElementById("attributes-pos").innerHTML = pos;
     document.getElementById("attributes-neg").innerHTML = neg;
     document.getElementById("class-icon").src = "images/icon_" + cls.toLowerCase() + ".jpg";
+
+    if (name.search("Jackrifleman") != -1 && irandom(3) == 0) {
+        document.getElementById("class-icon").src = "images/me.jpg";
+    }
 }
 
 function generateWeapon() 
@@ -215,4 +220,8 @@ function attributeAddNeg() {
         }
     }
     return _att;
+}
+
+function forceMe() {
+    document.getElementById("class-icon").src = "images/me.jpg";
 }
